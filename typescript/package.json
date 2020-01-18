@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "node dist/index",
+    "dev": "ts-node src/index",
+    "dev:watch": "nodemon --exec ts-node src/index",
+    "build": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}
