@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start": "node dist/index",
-    "dev": "ts-node src/index",
-    "dev:watch": "nodemon --exec ts-node src/index",
+    "start": "node dist/index.js",
+    "dev": "ts-node --files src/index.ts",
+    "dev:watch": "nodemon --exec yarn dev",
     "build": "tsc"
   },
   "dependencies": {},
