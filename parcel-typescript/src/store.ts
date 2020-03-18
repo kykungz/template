@@ -10,4 +10,4 @@ class Store {
   }
 }
 
-export default new Store()
+export const store = new Store()

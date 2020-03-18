@@ -8,6 +8,11 @@ class Store {
   setValue = value => {
     this.value = value
   }
+
+  @computed
+  get computed() {
+    return this.value * 2
+  }
 }
 
-export default new Store()
+export const store = new Store()

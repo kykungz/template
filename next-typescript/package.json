@@ -10,12 +10,15 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.1.8",
     "next": "^9.3.0",
     "normalize.css": "^8.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.8.3",
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@svgr/webpack": "^5.2.0",
     "@types/node": "^13.9.1",
