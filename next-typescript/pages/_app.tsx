@@ -1,8 +1,8 @@
 import App, { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
+import { GlobalStyle } from 'GlobalStyle'
 
 import 'normalize.css'
-import 'global.css'
 
 const CustomApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -10,6 +10,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>NextJS App</title>
       </Head>
+      <GlobalStyle />
       <Component {...pageProps} />
     </>
   )
