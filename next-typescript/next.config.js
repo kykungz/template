@@ -1,16 +1,20 @@
-const path = require('path')
-const dotenv = require('dotenv')
-const nextEnv = require('next-env')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
-dotenv.config()
+const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin')
 
-const withNextEnv = nextEnv()
-
-module.exports = withNextEnv({
-  webpack: config => {
+module.exports = withBundleAnalyzer({
+  webpack: (config, { webpack }) => {
     config.plugins = config.plugins || []
 
-    config.resolve.modules.push(path.resolve('./src'))
+    config.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
+
+    config.plugins.push(
+      new MomentTimezoneDataPlugin({
+        matchZones: /^Asia\/Bangkok/,
+      }),
+    )
 
     config.module.rules.push({
       test: /\.svg$/,
@@ -22,16 +26,17 @@ module.exports = withNextEnv({
       ],
     })
 
-    config.module.rules.push({
-      test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-      use: {
-        loader: 'url-loader',
-        options: {
-          limit: 100000,
-          name: '[name].[ext]',
-        },
-      },
-    })
+    /* For transforming images to base64 embeded in the bundle */
+    // config.module.rules.push({
+    //   test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+    //   use: {
+    //     loader: 'url-loader',
+    //     options: {
+    //       limit: 100000,
+    //       name: '[name].[ext]',
+    //     },
+    //   },
+    // })
 
     return config
   },

@@ -1,17 +1,14 @@
-import { observable, computed, action } from 'mobx'
+import { makeAutoObservable } from 'mobx'
 
 class Store {
-  @observable
-  value: number = 0
+  value = 0
 
-  @action
-  setValue = (value: number) => {
-    this.value = value
+  constructor() {
+    makeAutoObservable(this)
   }
 
-  @computed
-  get computed() {
-    return this.value * 2
+  setValue = (value: number) => {
+    this.value = value
   }
 }
 

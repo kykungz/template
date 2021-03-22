@@ -1,7 +1,9 @@
 // import App, { AppProps, AppContext } from 'next/app'
+
+import { Global } from '@emotion/react'
+import { globalStyles } from 'globalStyles'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { GlobalStyle } from 'GlobalStyle'
 
 import 'normalize.css'
 
@@ -11,7 +13,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>NextJS App</title>
       </Head>
-      <GlobalStyle />
+      <Global styles={globalStyles} />
       <Component {...pageProps} />
     </>
   )

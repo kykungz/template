@@ -1,6 +1,6 @@
-import { Global, css } from '@emotion/core'
+import { css } from '@emotion/react'
 
-const styles = css`
+export const globalStyles = css`
   html {
     box-sizing: border-box;
   }
@@ -16,5 +16,3 @@ const styles = css`
     background: salmon;
   }
 `
-
-export const GlobalStyle = () => <Global styles={styles} />
